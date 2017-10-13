@@ -2,7 +2,7 @@ FROM ubuntu:xenial-20171006
 
 ENV DOCKER_CLIENT_VERSION="17.03.0-ce"
 
-RUN apt -y update && apt install -y ansible rsync curl make && rm -rf /var/lib/apt/lists/*
+RUN apt -y update && apt install -y ansible rsync ssh curl make && rm -rf /var/lib/apt/lists/*
 
 # install node 8 and npm
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
