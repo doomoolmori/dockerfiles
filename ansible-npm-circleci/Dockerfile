@@ -8,6 +8,11 @@ RUN apt -y update && apt install -y ansible rsync curl && rm -rf /var/lib/apt/li
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
 
+# install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+      && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+      && apt -y update && apt install -y yarn
+
 # install Docker client
 RUN curl -L -o /tmp/docker-$DOCKER_CLIENT_VERSION.tgz https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_CLIENT_VERSION.tgz \
       && tar -xz -C /tmp -f /tmp/docker-$DOCKER_CLIENT_VERSION.tgz \
