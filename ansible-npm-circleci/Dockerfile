@@ -1,8 +1,8 @@
-FROM ubuntu:xenial-20171006
+FROM ubuntu:artful-20180417
 
-ENV DOCKER_CLIENT_VERSION="17.03.0-ce"
+ENV DOCKER_CLIENT_VERSION="18.03.1-ce"
 
-RUN apt -y update && apt install -y ansible rsync ssh curl make git && rm -rf /var/lib/apt/lists/*
+RUN apt-get -y update && apt-get install -y ansible rsync ssh curl make git && rm -rf /var/lib/apt/lists/*
 
 # install node 8 and npm
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
