@@ -16,7 +16,7 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
         yarn \
         libpng-dev \
         zlib1g-dev \
-        build-essential
+        build-essential \
   && rm -rf /var/lib/apt/lists/*
 
 
