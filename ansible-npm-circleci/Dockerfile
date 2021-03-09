@@ -1,12 +1,12 @@
-FROM ubuntu:artful-20180417
+FROM ubuntu:bionic-20210222
 
-ENV DOCKER_PKG_VERSION="18.03.1~ce-0~ubuntu"
+ENV DOCKER_PKG_VERSION="5:19.03.8~3-0~ubuntu-bionic"
 
 RUN apt-get -y update \
   && apt-get install -y --no-install-recommends ansible rsync ssh curl make git apt-utils \
   && rm -rf /var/lib/apt/lists/*
 
-# install node 8 and yarn
+# install node 15 and yarn
 RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - \
   && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
